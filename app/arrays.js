@@ -14,42 +14,59 @@ exports.arraysAnswers = {
   },
 
   remove: function(arr, item) {
-	 var item, a = arguments, L = a.length, ax;
-    while (L > 1 && arr.length) {
-        item = a[--L];
-        while ((ax= arr.indexOf(item)) !== -1) {
-            arr.splice(ax, 1);
-        }
+    var params=arguments;
+    var paramLength=params.length;
+    var itemIndex,itemToRemove;
+    while(paramLength>1 && arr.length){
+      itemToRemove=params[--paramLength];
+      while((itemIndex=arr.indexOf(itemToRemove)) !== -1){
+        arr.splice(itemIndex,1);
+      }
     }
-	  return arr;
+    return arr;
   },
 
   removeWithoutCopy: function(arr, item) {
-
+    var params=arguments;
+    var paramLength=params.length;
+    var itemIndex,itemToRemove;
+    while(paramLength>1 && arr.length){
+      itemToRemove=params[--paramLength];
+      while((itemIndex=arr.indexOf(itemToRemove)) !== -1){
+        arr.splice(itemIndex,1);
+      }
+    }
+    return arr;
   },
 
   append: function(arr, item) {
-
+    arr.push(item);
+    return arr;
   },
 
   truncate: function(arr) {
-
+    arr.pop();
+    return arr;
   },
 
   prepend: function(arr, item) {
-
+    arr.unshift(item);
+    return arr;
   },
 
   curtail: function(arr) {
-
+    arr.shift();
+    return arr;
   },
 
   concat: function(arr1, arr2) {
-
+    arr1=arr1.concat(arr2);
+    return arr1;
   },
 
   insert: function(arr, item, index) {
-
+      arr.splice(index,0,item);
+      return arr;
   },
 
   count: function(arr, item) {
